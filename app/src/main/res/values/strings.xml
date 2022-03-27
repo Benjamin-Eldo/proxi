@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">proxi</string>
+    <string name="title_activity_maps">Event Map</string>
+    <string name="search">Refresh</string>
+    <string name="dark_mode">Dark Mode</string>
+    <string name="event_information">Event Information</string>
+    <string name="end_date">End Date</string>
+    <string name="start_date">Start date</string>
+    <string name="city">City</string>
+    <string name="name">Name</string>
+    <string name="map">Map</string>
+    <string name="settings">Settings</string>
+    <string name="number_of_event_display">Number of event display</string>
+    <string name="application_settings">Application Settings</string>
+</resources>

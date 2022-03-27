@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">proxi</string>
+    <string name="title_activity_maps">Carte des évènements</string>
+    <string name="search">Recharger</string>
+    <string name="dark_mode">Thème sombre</string>
+    <string name="event_information">Information sur l\'évènement</string>
+    <string name="end_date">Date de fin</string>
+    <string name="start_date">Date de début</string>
+    <string name="city">Ville</string>
+    <string name="name">Nom</string>
+    <string name="map">Carte</string>
+    <string name="settings">Paramètres</string>
+    <string name="number_of_event_display">Nombre d\'évènements affichés</string>
+    <string name="application_settings">Paramètre de l\'application</string>
+</resources>
