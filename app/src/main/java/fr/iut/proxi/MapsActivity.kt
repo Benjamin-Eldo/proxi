@@ -58,6 +58,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                 eventList.get(i).coordinate.lat.toDouble())
             mMap.addMarker(MarkerOptions().position(point).title(eventList.get(i).name))
             mMap.moveCamera(CameraUpdateFactory.newLatLng(point))
+            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(point, 8F))
         }
 
         // Add a marker in Sydney and move the camera

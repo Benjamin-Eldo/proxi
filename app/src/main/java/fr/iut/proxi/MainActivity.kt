@@ -14,6 +14,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.TextView
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
@@ -26,6 +27,9 @@ import com.google.android.gms.location.LocationServices
 import fr.iut.proxi.model.Coordinate
 import fr.iut.proxi.model.LinkBuilder
 import fr.iut.proxi.model.PublicEvent
+import java.time.LocalDateTime
+import java.util.*
+import kotlin.collections.ArrayList
 
 class MainActivity : AppCompatActivity(), LocationListener {
 
@@ -46,6 +50,7 @@ class MainActivity : AppCompatActivity(), LocationListener {
 
     var userPosition = Coordinate(10F, 10F)
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -57,10 +62,17 @@ class MainActivity : AppCompatActivity(), LocationListener {
 
         //Link Builder Setting up
         builder.addParameter("rows", sharedPreferences.getInt("Number of event displayed",10).toString())
+        builder.addParameter("refine.date_start","2022%2F04")
 
 
 
-        getLocation()
+
+        if (sharedPreferences.getBoolean("Geolocation", false)  ){
+            getLocation()
+        }
+        else{
+            builder.removeParamater("geofilter.distance")
+        }
 
         if (supportActionBar != null){
             supportActionBar!!.hide()
@@ -104,6 +116,14 @@ class MainActivity : AppCompatActivity(), LocationListener {
                 setMessage("You don't have Internet")
                 show()
             }
+        }
+
+        if (sharedPreferences.getBoolean("Geolocation", false)){
+            getLocation()
+        }
+        else{
+            builder.removeParamater("geofilter.distance")
+            AsyncTaskGetData().execute(builder.build(),this)
         }
     }
 
