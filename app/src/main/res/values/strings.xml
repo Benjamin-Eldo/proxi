@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">proxi</string>
+    <string name="app_name">Proxi</string>
     <string name="title_activity_maps">Event Map</string>
     <string name="search">Refresh</string>
     <string name="dark_mode">Dark Mode</string>

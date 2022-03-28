@@ -46,7 +46,7 @@ class MainActivity : AppCompatActivity(), LocationListener {
 
     var builder = LinkBuilder("evenements-publics-cibul")
 
-    var canGetPosition = false
+    var canGetPosition = true
 
     var userPosition = Coordinate(10F, 10F)
 
@@ -67,7 +67,7 @@ class MainActivity : AppCompatActivity(), LocationListener {
 
 
 
-        if (sharedPreferences.getBoolean("Geolocation", false)  ){
+        if (sharedPreferences.getBoolean("Geolocation", false) && canGetPosition){
             getLocation()
         }
         else{
